@@ -23,6 +23,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int san = 0;
+  void birdikosh() {
+    san++;
+    setState(() {});
+  }
+
+  void birdikemit() {
+    san--;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,11 +48,18 @@ class _HomePageState extends State<HomePage> {
           child: Column(
         children: [
           Text(
-            '0',
+            '$san',
             style: TextStyle(fontSize: 70),
           ),
           ElevatedButton.icon(
-              onPressed: () {}, icon: Icon(Icons.add), label: Text('incrememt'))
+              onPressed: birdikosh,
+              icon: Icon(Icons.add),
+              label: Text('incrememt')),
+          ElevatedButton.icon(
+            onPressed: birdikemit,
+            icon: Icon(Icons.remove),
+            label: Text('Decerement'),
+          )
         ],
       )),
     );
